@@ -3,9 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Area total</title>
+    <script>
+        function area(){
+            var largura = document.getElementById("largura").value;
+            var comprimento = document.getElementById("comprimento").value;
+            largura = parseInt(largura);
+            comprimento = parseInt(comprimento);
+            var resultado = document.getElementById("resultado");
+            resultado.innerHTML = "Sua área total é: " + (largura*comprimento);
+        }
+    </script>
 </head>
 <body>
     <h1>Econect</h1>
+    <h3>Largura</h3>
+    <input id="largura"><br/>
+    <h3>Comprimento</h3>
+    <input id="comprimento"><br/>
+    <br/>
+    <button onclick="area()">Resultado</button>
+    <div id = "resultado"></div>
 </body>
 </html>
