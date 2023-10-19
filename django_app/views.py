@@ -7,3 +7,6 @@ def home (request):
 
 def sobre (request):
     return HttpResponse("Sobre nozes!")
+
+def infocredito (request):
+    return render(request, 'infocredito.html')
