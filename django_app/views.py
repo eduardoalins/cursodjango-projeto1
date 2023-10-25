@@ -10,3 +10,6 @@ def sobre (request):
 
 def infocredito (request):
     return render(request, 'infocredito.html')
+
+def home (request):
+    return render(request, 'home.html')
