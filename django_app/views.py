@@ -16,3 +16,6 @@ def home (request):
 
 def empresasprox (request):
     return render(request, 'empresasprox.html')
+
+def teste (request):
+    return render(request, 'teste.html')

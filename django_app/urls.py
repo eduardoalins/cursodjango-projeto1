@@ -9,4 +9,5 @@ urlpatterns = [
     path('informacoes/creditocarbono/', infocredito),
     path('',home),
     path('empresasprox/',empresasprox),
+    path('teste/',teste),
 ]

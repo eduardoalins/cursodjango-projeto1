@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Localizador de Empresas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        #content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+            width: 200px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .empresa {
+            display: none;
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .empresa h3 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <h2>Localizador de Empresas por CEP</h2>
+        <input type="text" id="cepInput" placeholder="Digite o CEP">
+        <button onclick="buscarEmpresa()">Buscar</button>
+
+        <!-- Lista de Empresas -->
+        <div class="empresa" id="empresa1">
+            <h3>Solar Norte</h3>
+            <p>Endereço da Solar Norte</p>
+        </div>
+
+        <div class="empresa" id="empresa2">
+            <h3>Solar Energia</h3>
+            <p>Endereço da Solar Energia</p>
+        </div>
+
+        <div class="empresa" id="empresa3">
+            <h3>Outra Empresa</h3>
+            <p>Endereço da Outra Empresa</p>
+        </div>
+        <!-- Fim da Lista de Empresas -->
+    </div>
+
+    <script>
+        function buscarEmpresa() {
+            var cep = document.getElementById("cepInput").value;
+
+            // Aqui você pode adicionar lógica para fazer a solicitação de API para obter informações da empresa com base no CEP.
+            // Por exemplo, você pode usar a API ViaCEP (https://viacep.com.br/).
+
+            // Exemplo de resposta simulada:
+            // var empresaInfo = "Nome da Empresa: Exemplo Empresas<br>Endereço: Rua Exemplo, 123";
+            // document.getElementById("result").innerHTML = empresaInfo;
+
+            // Exibir a lista de empresas apenas após a busca
+            document.getElementById("empresa1").style.display = "block";
+            document.getElementById("empresa2").style.display = "block";
+            document.getElementById("empresa3").style.display = "block";
+        }
+    </script>
+</body>
+</html>
