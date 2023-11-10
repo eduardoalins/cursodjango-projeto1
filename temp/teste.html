@@ -57,23 +57,23 @@
 <body>
     <div id="content">
         <h2>Localizador de Empresas por CEP</h2>
-        <input type="text" id="cepInput" placeholder="Digite o CEP">
+        <input type="text" id="cepInput" placeholder="Digite o CEP (sem hífen)">
         <button onclick="buscarEmpresa()">Buscar</button>
 
         <!-- Lista de Empresas -->
         <div class="empresa" id="empresa1">
-            <h3>Solar Norte</h3>
-            <p>Endereço da Solar Norte</p>
+            <h3>Nome da Empresa 1</h3>
+            <p>Endereço da Empresa 1</p>
         </div>
 
         <div class="empresa" id="empresa2">
-            <h3>Solar Energia</h3>
-            <p>Endereço da Solar Energia</p>
+            <h3>Nome da Empresa 2</h3>
+            <p>Endereço da Empresa 2</p>
         </div>
 
         <div class="empresa" id="empresa3">
-            <h3>Outra Empresa</h3>
-            <p>Endereço da Outra Empresa</p>
+            <h3>Nome da Empresa 3</h3>
+            <p>Endereço da Empresa 3</p>
         </div>
         <!-- Fim da Lista de Empresas -->
     </div>
@@ -81,18 +81,167 @@
     <script>
         function buscarEmpresa() {
             var cep = document.getElementById("cepInput").value;
+            var estadoSelecionado = obterEstadoPeloCep(cep);
 
-            // Aqui você pode adicionar lógica para fazer a solicitação de API para obter informações da empresa com base no CEP.
-            // Por exemplo, você pode usar a API ViaCEP (https://viacep.com.br/).
+            // Lógica para mostrar as empresas com base no estado
+            switch (estadoSelecionado) {
+                case "ac":
+                    exibirEmpresas(["Sol do Norte", "Amazonas Sun Gold Energia Solar"]);
+                    break;
+                case "al":
+                    exibirEmpresas(["Solar Norte", "Solar Energia"]);
+                    break;
+                case "ap":
+                    exibirEmpresas(["Solar Norte", "Solar Energia"]);
+                    break;
+                case "am":
+                    exibirEmpresas(["Solar Norte", "Solar Energia"]);
+                    break;
+                case "ba":
+                    exibirEmpresas(["Sol do Norte", "Amazonas Sun Gold Energia Solar"]);
+                    break;
+                case "ce":
+                    exibirEmpresas(["Solar Norte", "Solar Energia"]);
+                    break;
+                case "df":
+                    exibirEmpresas(["Solar Norte", "Solar Energia"]);
+                    break;
+                case "es":
+                    exibirEmpresas(["Solar Norte", "Solar Energia"]);
+                    break;
+                case "go":
+                    exibirEmpresas(["Sol do Norte", "Amazonas Sun Gold Energia Solar"]);
+                    break;
+                case "ma":
+                    exibirEmpresas(["Solar Norte", "Solar Energia"]);
+                    break;
+                case "mt":
+                    exibirEmpresas(["Solar Norte", "Solar Energia"]);
+                    break;
+                case "ms":
+                    exibirEmpresas(["Solar Norte", "Solar Energia"]);
+                    break;
+                case "mg":
+                    exibirEmpresas(["Sol do Norte", "Amazonas Sun Gold Energia Solar"]);
+                    break;
+                case "pa":
+                    exibirEmpresas(["Solar Norte", "Solar Energia"]);
+                    break;
+                case "pb":
+                    exibirEmpresas(["Solar Norte", "Solar Energia"]);
+                    break;
+                case "pr":
+                    exibirEmpresas(["Solar Norte", "Solar Energia"]);
+                    break;    
+                case "pe":
+                    exibirEmpresas(["Sol do Norte", "Amazonas Sun Gold Energia Solar"]);
+                    break;
+                case "pi":
+                    exibirEmpresas(["Solar Norte", "Solar Energia"]);
+                    break;
+                case "rj":
+                    exibirEmpresas(["Solar Norte", "Solar Energia"]);
+                    break;
+                case "rn":
+                    exibirEmpresas(["Solar Norte", "Solar Energia"]);
+                    break;  
+                case "rs":
+                    exibirEmpresas(["Sol do Norte", "Amazonas Sun Gold Energia Solar"]);
+                    break;
+                case "ro":
+                    exibirEmpresas(["Solar Norte", "Solar Energia"]);
+                    break;
+                case "rr":
+                    exibirEmpresas(["Solar Norte", "Solar Energia"]);
+                    break;
+                case "sc":
+                    exibirEmpresas(["Solar Norte", "Solar Energia"]);
+                    break;  
+                case "sp":
+                    exibirEmpresas(["Sol do Norte", "Amazonas Sun Gold Energia Solar"]);
+                    break;
+                case "se":
+                    exibirEmpresas(["Solar Norte", "Solar Energia"]);
+                    break;
+                case "to":
+                    exibirEmpresas(["Solar Norte", "Solar Energia"]);
+                    break;
+                default:
+                    // Limpar a lista se o estado não estiver na lista
+                    limparEmpresas();
+            }
+        }
 
-            // Exemplo de resposta simulada:
-            // var empresaInfo = "Nome da Empresa: Exemplo Empresas<br>Endereço: Rua Exemplo, 123";
-            // document.getElementById("result").innerHTML = empresaInfo;
+        function obterEstadoPeloCep(cep) {
+            // Lógica para obter o estado pela faixa de CEP
+            // Este é um exemplo simplificado para fins de ilustração.
 
-            // Exibir a lista de empresas apenas após a busca
-            document.getElementById("empresa1").style.display = "block";
-            document.getElementById("empresa2").style.display = "block";
-            document.getElementById("empresa3").style.display = "block";
+            // Definindo faixas de CEP para cada estado
+            var faixasPorEstado = {
+                "ac": { inicio: "69900000", fim: "69999999" },
+                "al": { inicio: "57000000", fim: "57999999" },
+                "ap": { inicio: "68900000", fim: "68999999" },
+                "am": { inicio: "69000000", fim: "69299999" },
+                "am": { inicio: "69400000", fim: "69899999" },
+                "ba": { inicio: "40000000", fim: "48999999" },
+                "ce": { inicio: "60000000", fim: "63999999" },
+                "df": { inicio: "70000000", fim: "72799999" },
+                "df": { inicio: "73000000", fim: "73699999" },
+                "es": { inicio: "29000000", fim: "29999999" },
+                "go": { inicio: "72800000", fim: "72999999" },
+                "go": { inicio: "73700000", fim: "76799999" },
+                "ma": { inicio: "65000000", fim: "65999999" },
+                "mt": { inicio: "78000000", fim: "78899999" },
+                "ms": { inicio: "79000000", fim: "79999999" },
+                "mg": { inicio: "30000000", fim: "39999999" },
+                "pa": { inicio: "66000000", fim: "68899999" },
+                "pb": { inicio: "58000000", fim: "58999999" },
+                "pr": { inicio: "80000000", fim: "87999999" },
+                "pe": { inicio: "50000000", fim: "56999999" },
+                "pi": { inicio: "64000000", fim: "64999999" },
+                "rj": { inicio: "20000000", fim: "28999999" },
+                "rn": { inicio: "59000000", fim: "59999999" },
+                "rs": { inicio: "90000000", fim: "99999999" },
+                "ro": { inicio: "76800000", fim: "76999999" },
+                "rr": { inicio: "69300000", fim: "69399999" },
+                "sc": { inicio: "88000000", fim: "89999999" },
+                "sp": { inicio: "01000000", fim: "19999999" },
+                "se": { inicio: "49000000", fim: "49999999" },
+                "to": { inicio: "77000000", fim: "77999999" },
+                // Adicione mais estados e faixas conforme necessário
+            };
+
+            for (var estado in faixasPorEstado) {
+                var faixa = faixasPorEstado[estado];
+                if (cep >= faixa.inicio && cep <= faixa.fim) {
+                    return estado;
+                }
+            }
+
+            // Retorna null se nenhum estado for encontrado para a faixa de CEP
+            return null;
+        }
+
+        function exibirEmpresas(empresas) {
+            // Ocultar todas as empresas
+            for (var i = 1; i <= 3; i++) {
+                document.getElementById("empresa" + i).style.display = "none";
+            }
+
+            // Exibir as empresas fornecidas
+            for (var i = 0; i < empresas.length; i++) {
+                document.getElementById("empresa" + (i + 1)).style.display = "block";
+                document.getElementById("empresa" + (i + 1)).getElementsByTagName("h3")[0].innerText = empresas[i];
+                // Altere o endereço da empresa conforme necessário
+                document.getElementById("empresa" + (i + 1)).getElementsByTagName("p")[0].innerText = "Endereço da " + empresas[i];
+            }
+        }
+
+        function limparEmpresas() {
+            // Ocultar todas as empresas
+            for (var i = 1; i <= 3; i++) {
+                document.getElementById("empresa" + i).style.display = "none";
+            }
         }
     </script>
 </body>
