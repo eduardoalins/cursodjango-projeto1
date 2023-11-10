@@ -13,3 +13,6 @@ def infocredito (request):
 
 def home (request):
     return render(request, 'home.html')
+
+def empresasprox (request):
+    return render(request, 'empresasprox.html')
