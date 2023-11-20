@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Empresas
 # Create your views here.
 
 def calculararea (request):
@@ -19,3 +20,15 @@ def empresasprox (request):
 
 def teste (request):
     return render(request, 'teste.html')
+
+def add_empresas(request):
+    nova = Empresas()
+    nova_nome = request.POST.get('nome')
+    nova_rua = request.POST.get('rua')
+    nova.save()
+
+    add_empresas = {
+        'add_empresas': Empresas.objects.all()
+    }
+    
+    return render(request, 'teste.html', Empresas)

@@ -1,0 +1,14 @@
+<div class="container">
+    <table>
+        <tr>
+            <th>nome</th>
+            <th>rua</th>
+        </tr>
+        {% for Empresas in add_empresas %}
+        <tr>
+            <td>{{Empresas.nome}}</td>
+            <td>{{Empresas.rua}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
