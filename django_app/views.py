@@ -31,4 +31,4 @@ def add_empresas(request):
         'add_empresas': Empresas.objects.all()
     }
     
-    return render(request, 'teste.html', Empresas)
+    return render(request, 'teste2.html', Empresas)
